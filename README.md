@@ -15,6 +15,19 @@ example app to deploy.
 
         gcloud app deploy
 
+	The recommended approach is to remove the application element from your app.yaml file and instead, use a command-line flag to specify your application ID:
+	To use the gcloud app deploy command, you must specify the --project flag:
+
+        gcloud app deploy --project [YOUR_PROJECT_ID]
+
+    To use the appcfg.py update command, you specify the -A flag:
+
+        appcfg.py update -A [YOUR_PROJECT_ID]
+
+    For more information about using these commands, see Deploying Your App.
+
+    The application ID is the Cloud Platform Console project ID that you specified when you created the application in the Google Cloud Platform Console.
+
 # Tutorial
 See our [Running Django in the App Engine Standard Environment](https://cloud.google.com/python/django/appengine) tutorial for instructions for setting up and deploying this sample application.
 
