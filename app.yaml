@@ -16,6 +16,31 @@ handlers:
 libraries:
 - name: MySQLdb
   version: 1.2.5
+
+- name: ssl
+  version: latest
+
+- name: enum
+  version: latest
+
+- name: jinja2
+  version: latest
+
+- name: lxml
+  version: latest
+
+- name: markupsafe
+  version: latest
+
+- name: PIL
+  version: latest
+
+- name: six
+  version: latest
+
+- name: ujson
+  version: latest
+
 # [END django_app]
 
 # Google App Engine limits application deployments to 10,000 uploaded files per
@@ -30,5 +55,5 @@ skip_files:
 - ^(.*/)?\..*$
 - ^env/.*$
 
-env_variables:
-  DJANGO_SETTINGS_MODULE: 'mysite.settings.production'
+includes:
+- environment.yaml
