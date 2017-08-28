@@ -1,0 +1,58 @@
+[
+{
+  "model": "editor.editor",
+  "pk": 1,
+  "fields": {
+    "user": 2,
+    "pen_name": "G-Force"
+  }
+},
+{
+  "model": "editor.editor",
+  "pk": 2,
+  "fields": {
+    "user": 27,
+    "pen_name": "The Bull Moose"
+  }
+},
+{
+  "model": "editor.editor",
+  "pk": 3,
+  "fields": {
+    "user": 33,
+    "pen_name": "FDR"
+  }
+},
+{
+  "model": "editor.editor",
+  "pk": 4,
+  "fields": {
+    "user": 34,
+    "pen_name": "Give 'Em Hell Harry"
+  }
+},
+{
+  "model": "editor.editor",
+  "pk": 5,
+  "fields": {
+    "user": 18,
+    "pen_name": "The Rail-Splitter"
+  }
+},
+{
+  "model": "editor.editor",
+  "pk": 6,
+  "fields": {
+    "user": 35,
+    "pen_name": "Ike"
+  }
+},
+{
+  "model": "editor.editor",
+  "pk": 7,
+  "fields": {
+    "user": 4,
+    "pen_name": "American Cincinnatus"
+  }
+}
+]

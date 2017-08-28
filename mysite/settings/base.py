@@ -50,13 +50,30 @@ ALLOWED_HOSTS = ['*']
 # Application definition
 
 INSTALLED_APPS = (
+    # 'grappelli',
+
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites',
+
+    'rest_framework',
+    'dry_rest_permissions',
+    'rest_framework_extensions',
+    'rest_framework_swagger',
+
+    'allauth',
+    'allauth.account',
+    'rest_auth',
+    'rest_framework.authtoken',
+    'rest_auth.registration',
+
+    # Project Apps
     'polls',
+    'core'
 )
 
 MIDDLEWARE_CLASSES = (
@@ -85,6 +102,10 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+            ],
+            'loaders': [
+                'django.template.loaders.filesystem.Loader',
+                'django.template.loaders.app_directories.Loader',
             ],
         },
     },
@@ -148,3 +169,5 @@ USE_TZ = True
 
 STATIC_ROOT = 'static'
 STATIC_URL = '/static/'
+
+SITE_ID = 1

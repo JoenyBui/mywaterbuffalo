@@ -1,0 +1,6 @@
+---
+
+git_repo: git@bitbucket.org:joenyb/django-ost.git
+
+project_name: open-standardize-test
+application_name: django-ost

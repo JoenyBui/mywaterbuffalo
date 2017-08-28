@@ -1,0 +1,264 @@
+[
+{
+  "model": "mathematics.math",
+  "pk": 1,
+  "fields": {
+    "qtype": 7,
+    "stem": {
+      "charts": [],
+      "figures": [],
+      "statement": "John and Maria bought a medium pizza that has 8 slices. If John ate {{numerator1}}/{{denominator1}} slices and Maria ate {{numerator2}}/{{denominator2}}, who ate more pizza?"
+    },
+    "keys": {
+      "answer": "John",
+      "variables": [
+        {
+          "name": "numerator1",
+          "type": "whole",
+          "value": 2
+        },
+        {
+          "name": "denominator1",
+          "type": "whole",
+          "value": 4
+        },
+        {
+          "name": "numerator2",
+          "type": "whole",
+          "value": 3
+        },
+        {
+          "name": "denominator2",
+          "type": "whole",
+          "value": 8
+        }
+      ]
+    },
+    "editors": [],
+    "topics": []
+  }
+},
+{
+  "model": "mathematics.math",
+  "pk": 2,
+  "fields": {
+    "qtype": 7,
+    "stem": {
+      "charts": [],
+      "figures": [],
+      "statement": "Peter and Eric bought a large pizza that has {{num_of_div}} slices. John and Eric ate all the pizza. If John ate {{numerator}}/{{denominator}} slices, how much did Eric eat? Who ate more pizza?"
+    },
+    "keys": {
+      "answer": "1/3",
+      "variables": [
+        {
+          "name": "num_of_div",
+          "type": "whole",
+          "value": 12
+        },
+        {
+          "name": "numerator",
+          "type": "whole",
+          "value": 4
+        },
+        {
+          "name": "denominator",
+          "type": "whole",
+          "value": 6
+        }
+      ]
+    },
+    "editors": [],
+    "topics": []
+  }
+},
+{
+  "model": "mathematics.math",
+  "pk": 3,
+  "fields": {
+    "qtype": 7,
+    "stem": {
+      "charts": [],
+      "figures": [],
+      "statement": "How many halves are there in two-fifths?"
+    },
+    "keys": {},
+    "editors": [],
+    "topics": []
+  }
+},
+{
+  "model": "mathematics.math",
+  "pk": 4,
+  "fields": {
+    "qtype": 7,
+    "stem": {
+      "charts": [],
+      "figures": [],
+      "statement": "What is half of one-fourth?"
+    },
+    "keys": {},
+    "editors": [],
+    "topics": []
+  }
+},
+{
+  "model": "mathematics.math",
+  "pk": 5,
+  "fields": {
+    "qtype": 7,
+    "stem": {
+      "charts": [],
+      "figures": [],
+      "statement": "John and Maria bought a medium pizza that has 8 slices. If John ate {{numerator1}}/{{denominator1}} slices and Maria ate {{numerator2}}/{{denominator2}}, who ate more pizza?"
+    },
+    "keys": {
+      "answer": "John",
+      "variables": [
+        {
+          "name": "numerator1",
+          "type": "whole",
+          "value": 2
+        },
+        {
+          "name": "denominator1",
+          "type": "whole",
+          "value": 4
+        },
+        {
+          "name": "numerator2",
+          "type": "whole",
+          "value": 3
+        },
+        {
+          "name": "denominator2",
+          "type": "whole",
+          "value": 8
+        }
+      ]
+    },
+    "editors": [],
+    "topics": []
+  }
+},
+{
+  "model": "mathematics.math",
+  "pk": 6,
+  "fields": {
+    "qtype": 7,
+    "stem": {
+      "charts": [],
+      "figures": [],
+      "statement": "Peter and Eric bought a large pizza that has {{num_of_div}} slices. John and Eric ate all the pizza. If John ate {{numerator}}/{{denominator}} slices, how much did Eric eat? Who ate more pizza?"
+    },
+    "keys": {
+      "answer": "1/3",
+      "variables": [
+        {
+          "name": "num_of_div",
+          "type": "whole",
+          "value": 12
+        },
+        {
+          "name": "numerator",
+          "type": "whole",
+          "value": 4
+        },
+        {
+          "name": "denominator",
+          "type": "whole",
+          "value": 6
+        }
+      ]
+    },
+    "editors": [],
+    "topics": []
+  }
+},
+{
+  "model": "mathematics.math",
+  "pk": 7,
+  "fields": {
+    "qtype": 7,
+    "stem": {
+      "charts": [],
+      "figures": [],
+      "statement": "How many halves are there in two-fifths?"
+    },
+    "keys": {},
+    "editors": [],
+    "topics": []
+  }
+},
+{
+  "model": "mathematics.math",
+  "pk": 8,
+  "fields": {
+    "qtype": 7,
+    "stem": {
+      "charts": [],
+      "figures": [],
+      "statement": "What is half of one-fourth?"
+    },
+    "keys": {},
+    "editors": [],
+    "topics": []
+  }
+},
+{
+  "model": "mathematics.math",
+  "pk": 9,
+  "fields": {
+    "qtype": 3,
+    "stem": {
+      "charts": [],
+      "figures": [],
+      "statement": "Which fraction is bigger than {{numerator}}/{{denominator}}"
+    },
+    "keys": {
+      "answer": "3/4",
+      "variables": [
+        {
+          "name": "numerator",
+          "type": "whole",
+          "value": 2
+        },
+        {
+          "name": "denominator",
+          "type": "whole",
+          "value": 2
+        }
+      ],
+      "choices": [
+        "2/5",
+        "4/7",
+        "2/4",
+        "3/4"
+      ]
+    },
+    "editors": [],
+    "topics": []
+  }
+},
+{
+  "model": "mathematics.math",
+  "pk": 10,
+  "fields": {
+    "qtype": 3,
+    "stem": {
+      "charts": [],
+      "figures": [],
+      "statement": "Tell if the fraction on the left is less or greater than the fraction on the right."
+    },
+    "keys": {
+      "answer": 0,
+      "choices": [
+        "2/3",
+        "3/5"
+      ]
+    },
+    "editors": [],
+    "topics": []
+  }
+}
+]

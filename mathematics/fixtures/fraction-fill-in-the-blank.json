@@ -1,0 +1,41 @@
+[
+	{
+        "model": "mathematics.math",
+        "pk": 1,
+        "fields": {
+          "name": "Fill-in-the-Blank",
+          "stem": {
+              "statement": "Express the following fractions in simplest form: {{numerator}}/{{denominator}}",
+              "figures": [],
+              "charts": []
+          },
+          "keys": {
+              "variables": [
+                  {"name": "numerator", "value": 4, "type": "whole"},
+                  {"name": "denominator", "value": 16, "type": "whole"}
+              ],
+              "answer": "1/4"
+          }
+        }
+	},
+	{
+        "model": "mathematics.math",
+        "pk": 2,
+        "fields": {
+		"name": "Fill-in-the-Blank",
+          "stem": {
+              "statement": "Express the following fractions in simplest form: {{numerator}}/{{denominator}}",
+              "figures": [],
+              "charts": []
+          },
+          "keys": {
+              "variables": [
+                  {"name": "numerator", "value": [4,3,12,8], "type": "whole range"},
+                  {"name": "denominator", "value": [16,6,18,15], "type": "whole range"}
+              ],
+              "answer": ["1/4","1/2","2/3","8/15"]
+          }
+
+        }
+	}
+]

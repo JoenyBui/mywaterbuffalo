@@ -38,7 +38,7 @@ See our [Running Django in the App Engine Standard Environment](https://cloud.go
 2. In two places, replace <your-database-user> and <your-database-password> with the username and password you created previously. This helps set up the connection to the database for both App Engine deployment and local testing.
 3. Run the following command. Copy the outputted connectionName value for the next step.
 
-    `gcloud beta sql instances describe [YOUR_INSTANCE_NAME]`
+        gcloud beta sql instances describe [YOUR_INSTANCE_NAME]
 
 4. Replace <your-cloudsql-connection-string> with connectionName from the previous step.
 5. Close and save settings.py.
@@ -117,3 +117,14 @@ Record the value returned for connectionName. You can also find this value in th
 
         ./cloud_sql_proxy -instances="mywaterbuffalo-178002:us-central1:mysqlwaterbuffalo"=tcp:3316
 
+# Deploy the app to the App Engine standard environment
+
+1. Gather all the static content into one folder. This command moves all of the app's static files into the folder specified by STATIC_ROOT in settings.py:
+
+        python manage.py collectstatic
+
+2. Upload the app by running the following command from within the python-docs-samples/appengine/standard/django directory of the application where the app.yaml file is located:
+
+        gcloud app deploy
+
+Wait for the message that notifies you that the update has completed.

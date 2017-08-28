@@ -1,0 +1,74 @@
+[
+{
+  "model": "topic.topic",
+  "pk": 1,
+  "fields": {
+    "name": "Mathematic",
+    "key": 1000
+  }
+},
+{
+  "model": "topic.topic",
+  "pk": 2,
+  "fields": {
+    "name": "Addition",
+    "key": 1001
+  }
+},
+{
+  "model": "topic.topic",
+  "pk": 3,
+  "fields": {
+    "name": "Subtraction",
+    "key": 1002
+  }
+},
+{
+  "model": "topic.topic",
+  "pk": 4,
+  "fields": {
+    "name": "Multiplication",
+    "key": 1003
+  }
+},
+{
+  "model": "topic.topic",
+  "pk": 5,
+  "fields": {
+    "name": "Division",
+    "key": 1004
+  }
+},
+{
+  "model": "topic.topic",
+  "pk": 6,
+  "fields": {
+    "name": "Fraction",
+    "key": 1005
+  }
+},
+{
+  "model": "topic.topic",
+  "pk": 7,
+  "fields": {
+    "name": "Reading",
+    "key": 2000
+  }
+},
+{
+  "model": "topic.topic",
+  "pk": 8,
+  "fields": {
+    "name": "Spelling",
+    "key": 2001
+  }
+},
+{
+  "model": "topic.topic",
+  "pk": 9,
+  "fields": {
+    "name": "Vocabulary",
+    "key": 2002
+  }
+}
+]
