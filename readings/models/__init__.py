@@ -1,6 +1,7 @@
 
 from django.db import models
-from django.contrib.postgres.fields import JSONField
+# from django.contrib.postgres.fields import JSONField
+from django_mysql.models.fields.json import JSONField
 
 from problem.models import ProblemBase, QuestionTypeBase
 from problem.domain import DOMAIN_READING
@@ -26,8 +27,8 @@ class Reading(ProblemBase, QuestionTypeBase):
 
     """
     passage = models.ForeignKey(ReadingPassage, default=None)
-    stem = JSONField(default={})
-    keys = JSONField(default={})
+    stem = JSONField()
+    keys = JSONField()
 
     class Meta:
         app_label = 'readings'

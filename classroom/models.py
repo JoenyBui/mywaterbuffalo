@@ -3,7 +3,8 @@ import datetime
 from django.contrib.auth.models import User
 
 from django.db import models
-from django.contrib.postgres.fields import JSONField
+# from django.contrib.postgres.fields import JSONField
+from django_mysql.models.fields.json import JSONField
 
 from problem.models import ProblemInstance, AnswerInstance
 
@@ -162,8 +163,8 @@ class ExamAnswers(models.Model):
 
     student = models.ForeignKey(Pupil)
     exam = models.ForeignKey(ExamProblems)
-    answers = JSONField(default={})
-    results = JSONField(default={})
+    answers = JSONField()
+    results = JSONField()
     grade = models.FloatField(default=0.0)
     status = models.IntegerField(choices=STATUS_CHOICES, default=CREATED)
     created = models.DateTimeField(auto_now_add=True, blank=True)

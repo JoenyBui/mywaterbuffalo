@@ -1,5 +1,7 @@
 import os
-from urllib.parse import urljoin
+#from urllib.parse import urljoin
+from urlparse import urljoin
+
 from collections import OrderedDict
 
 from rest_framework import serializers

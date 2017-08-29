@@ -1,11 +1,13 @@
-from abc import abstractclassmethod
+# -*- coding:utf-8 -*-
+#from abc import abstractclassmethod
 
 from jinja2 import Template
 import random
 import datetime
 
 from django.db import models
-from django.contrib.postgres.fields import JSONField
+# from django.contrib.postgres.fields import JSONField
+from django_mysql.models.fields.json import JSONField
 
 from taggit.managers import TaggableManager
 
@@ -399,10 +401,11 @@ class ProblemInstance(models.Model):
             multiple correct choices, use checkbox for answer selection
 
     """
-    data = JSONField(default={
-        'keys': {},
-        'index': 0
-    })
+    data = JSONField()
+    # data = JSONField(default=dict(
+    #     keys=dict(),
+    #     index=0
+    # ))
     root = models.ForeignKey(ProblemBase, default=None)
 
     def __str__(self):

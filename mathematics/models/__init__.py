@@ -2,7 +2,9 @@ import random
 
 from jinja2 import Template
 
-from django.contrib.postgres.fields import JSONField
+# from django.contrib.postgres.fields import JSONField
+from django_mysql.models.fields.json import JSONField
+
 from django.core import serializers
 
 from taggit.managers import TaggableManager
@@ -70,8 +72,8 @@ class Math(ProblemBase, QuestionTypeBase):
         Topic Many-to-Many object
 
     """
-    stem = JSONField(default={})                        # Statement or Question
-    keys = JSONField(default={})                        # Attributes, variables, answers and logic
+    stem = JSONField()                        # Statement or Question
+    keys = JSONField()                        # Attributes, variables, answers and logic
     # validation = JSONField(default={})                  # Add in validation code
     # explanation = JSONField(default={})                 # Explanation of the answer.
     # topic = TaggableManager(verbose_name='Math Topics',

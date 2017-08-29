@@ -60,6 +60,8 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'django.contrib.sites',
 
+    # 3rd-Party Apps
+    'compressor',
     'rest_framework',
     'dry_rest_permissions',
     'rest_framework_extensions',
@@ -70,10 +72,19 @@ INSTALLED_APPS = (
     'rest_auth',
     'rest_framework.authtoken',
     'rest_auth.registration',
-
+    'django_filters',
+    'friendship',
+    'taggit',
+    
     # Project Apps
     'polls',
-    'core'
+    'core',
+    'editor',
+    'topic',
+    'classroom',
+    'problem',
+    'mathematics',
+    'readings'
 )
 
 MIDDLEWARE_CLASSES = (
@@ -171,3 +182,49 @@ STATIC_ROOT = 'static'
 STATIC_URL = '/static/'
 
 SITE_ID = 1
+
+# *** grappelli admin ***
+GRAPPELLI_ADMIN_TITLE = 'Water Buffalo ADL Admin'
+GRAPPELLI_AUTOCOMPLETE_LIMIT = 5
+GRAPPELLI_SWITCH_USER = True
+
+# *** django-resetframework settings ***
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework.authentication.BasicAuthentication',
+        'rest_framework.authentication.SessionAuthentication',
+        'rest_framework.authentication.TokenAuthentication',
+        'rest_framework_jwt.authentication.JSONWebTokenAuthentication',
+    ),
+    # Use Django's standard `django.contrib.auth` permissions,
+    # or allow read-only access for unauthenticated users.
+    'DEFAULT_PERMISSION_CLASSES': [
+        # 'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly',
+        'rest_framework.permissions.IsAuthenticated',
+    ],
+    'DEFAULT_FILTER_BACKENDS': ('rest_framework.filters.DjangoFilterBackend',),
+    'DEFAULT_VERSIONING_CLASS': 'rest_framework.versioning.NamespaceVersioning',
+    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.LimitOffsetPagination',
+}
+
+
+# Media files.
+
+MEDIA_ROOT = os.getenv('MEDIA_ROOT', os.path.join(BASE_DIR, 'media'))
+
+MEDIA_URL = '/media/'
+
+# Email settings.
+
+EMAIL_HOST = os.getenv('EMAIL_HOST')
+EMAIL_PORT = os.getenv('EMAIL_PORT', 587)
+EMAIL_HOST_USER = os.getenv('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD')
+EMAIL_USE_TLS = os.getenv('EMAIL_USE_TLS', True)
+
+DEFAULT_FROM_EMAIL = 'Info <info@mywaterbuffalo.com>'
+SERVER_EMAIL = 'Alerts <alerts@mywaterbuffalo.com>'
+
+ADMINS = (
+    ('Admin', 'admin@mywaterbuffalo.com'),
+)

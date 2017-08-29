@@ -15,9 +15,12 @@
 from django.conf.urls import include, url
 from django.contrib import admin
 
+from rest_framework.authtoken import views as restful_view
+from rest_framework_jwt.views import obtain_jwt_token
+
 from polls.views import index
 
-from .view import api_root, api_core, api_rest_auth
+from .view import api_root, api_v1_root, api_rest_auth, api_core, schema_view
 
 urlpatterns = [
     # url(r'^$', index),
@@ -30,6 +33,15 @@ urlpatterns = [
 
     url(r'core/$', api_core, name='core-root'),
     url(r'core/', include('core.urls', namespace='core')),
+
+    url(r'api-token-auth/', restful_view.obtain_auth_token, name="api-token"),
+    url(r'api-auth/', include('rest_framework.urls', namespace='rest_framework')),
+
+
+    url(r'^friendship/', include('friendship.urls')),
+
+    url(r'v1/$', api_v1_root, name='v1-root'),
+    url(r'v1/', include('mysite.v1', namespace='v1')),
 
     url(r'^$', api_root, name='index'),
 ]
