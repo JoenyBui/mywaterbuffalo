@@ -4,7 +4,8 @@ from django.contrib.auth.models import User
 
 from django.db import models
 # from django.contrib.postgres.fields import JSONField
-from django_mysql.models.fields.json import JSONField
+# from django_mysql.models.fields.json import JSONField
+from jsonfield import JSONField
 
 from problem.models import ProblemInstance, AnswerInstance
 

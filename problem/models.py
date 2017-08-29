@@ -7,7 +7,8 @@ import datetime
 
 from django.db import models
 # from django.contrib.postgres.fields import JSONField
-from django_mysql.models.fields.json import JSONField
+# from django_mysql.models.fields.json import JSONField
+from jsonfield import JSONField
 
 from taggit.managers import TaggableManager
 

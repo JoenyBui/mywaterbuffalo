@@ -3,7 +3,8 @@ import random
 from jinja2 import Template
 
 # from django.contrib.postgres.fields import JSONField
-from django_mysql.models.fields.json import JSONField
+#from django_mysql.models.fields.json import JSONField
+from jsonfield import JSONField
 
 from django.core import serializers
 

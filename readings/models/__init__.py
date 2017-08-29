@@ -1,7 +1,8 @@
 
 from django.db import models
 # from django.contrib.postgres.fields import JSONField
-from django_mysql.models.fields.json import JSONField
+#from django_mysql.models.fields.json import JSONField
+from jsonfield import JSONField
 
 from problem.models import ProblemBase, QuestionTypeBase
 from problem.domain import DOMAIN_READING
