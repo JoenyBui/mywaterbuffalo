@@ -73,10 +73,14 @@ INSTALLED_APPS = (
     'rest_framework.authtoken',
     'rest_auth.registration',
     'django_filters',
+    'django_tables2',
+    'mptt',
+
     'friendship',
     'taggit',
-    
+
     # Project Apps
+    # 'extras',
     'polls',
     'core',
     'editor',
@@ -84,7 +88,8 @@ INSTALLED_APPS = (
     'classroom',
     'problem',
     'mathematics',
-    'readings'
+    'readings',
+    'utilities'
 )
 
 MIDDLEWARE_CLASSES = (
