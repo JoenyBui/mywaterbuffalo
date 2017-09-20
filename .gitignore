@@ -100,3 +100,7 @@ ENV/
 .ropeproject
 /static/
 /environment.yaml
+### Vagrant template
+.vagrant/
+
+*vagrant.retry

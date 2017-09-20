@@ -149,6 +149,17 @@ else:
     #     $ cloud_sql_proxy -instances=[INSTANCE_CONNECTION_NAME]=tcp:3306
     #
     # See https://cloud.google.com/sql/docs/mysql-connect-proxy
+    # DATABASES = {
+    #     'default': {
+    #         'ENGINE': 'django.db.backends.mysql',
+    #         'HOST': os.getenv('DATABASE_HOST', '127.0.0.1'),
+    #         'PORT': os.getenv('DATABASE_PORT', '9306'),
+    #         'NAME': os.getenv('DATABASE_NAME', 'django-ost'),
+    #         'USER': os.getenv('DATABASE_USER', 'django-ost'),
+    #         'PASSWORD': os.getenv('DATABASE_PASSWORD', 'password'),
+    #     }
+    # }
+
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.mysql',
@@ -180,6 +191,9 @@ USE_TZ = True
 
 STATIC_ROOT = 'static'
 STATIC_URL = '/static/'
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, "project-static"),
+)
 
 SITE_ID = 1
 

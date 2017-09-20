@@ -10,8 +10,7 @@
   vars_files:
     - env_vars/base.yml
     - env_vars/vagrant.yml
-#    - env_vars/postgres.yml
 
   roles:
     - base
-    - db
+    - mysql
