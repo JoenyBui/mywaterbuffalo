@@ -10,6 +10,31 @@
     </div>
 {% endif %}
 {#{% include 'search_form.html' %}#}
+<div class="row">
+    <div class="col-sm-6 col-md-4">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <strong>Math Problems</strong>
+            </div>
+            <div class="list-group">
+                <div class="list-group-item">
+                    <span class="badge pull-right">{{ stats.maths_count }}</span>
+{#                    <h4 class="list-group-item-heading"><a href="{% url 'dcim:site_list' %}">Sites</a></h4>#}
+                    <p class="list-group-item-text text-muted">Mathematics</p>
+                </div>
+                <div class="list-group-item">
+                    <span class="badge pull-right">{{ stats.additions_count }}</span>
+{#                    <h4 class="list-group-item-heading"><a href="{% url 'tenancy:tenant_list' %}">Tenants</a></h4>#}
+                    <p class="list-group-item-text text-muted">Additions</p>
+                </div>
+                <div class="list-group-item">
+                    <span class="badge pull-right">{{ stats.fractions_count }}</span>
+                    <p class="list-group-item-text text-muted">Fractions</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 {#<div class="row">#}
 {#    <div class="col-sm-6 col-md-4">#}
 {#        <div class="panel panel-default">#}

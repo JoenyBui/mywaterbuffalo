@@ -47,10 +47,17 @@ class HomeView(View):
 
     def get(self, request):
         stats = {
-
+            'maths_count': None,
+            'fractions_count': None,
+            'additions_count': None,
+            'subtractions_count': None,
+            'multiplications_count': None,
+            'divisions_count': None
         }
 
-        return render(request, self.template_name)
+        return render(request, self.template_name, {
+            'stats': stats
+        })
 
 
 @api_view(('GET', ))
