@@ -80,6 +80,7 @@ INSTALLED_APPS = (
     'friendship',
     'taggit',
     'taggit_labels',
+    'tinymce',
 
     # Project Apps
     # 'extras',

@@ -8,6 +8,7 @@ from jsonfield import JSONField
 
 from django.core import serializers
 
+from tinymce.models import HTMLField
 from taggit.managers import TaggableManager
 
 from problem.models import ProblemBase, QuestionTypeBase, ProblemInstance
@@ -73,6 +74,7 @@ class Math(ProblemBase, QuestionTypeBase):
         Topic Many-to-Many object
 
     """
+    content = HTMLField()
     stem = JSONField()                        # Statement or Question
     keys = JSONField()                        # Attributes, variables, answers and logic
     # validation = JSONField(default={})                  # Add in validation code
