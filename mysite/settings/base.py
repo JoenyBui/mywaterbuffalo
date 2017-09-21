@@ -74,10 +74,12 @@ INSTALLED_APPS = (
     'rest_auth.registration',
     'django_filters',
     'django_tables2',
+    'django_json_widget',
     'mptt',
 
     'friendship',
     'taggit',
+    'taggit_labels',
 
     # Project Apps
     # 'extras',

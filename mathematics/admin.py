@@ -1,5 +1,10 @@
 from django.contrib import admin
 
+from jsonfield import JSONField
+from django_json_widget.widgets import JSONEditorWidget
+from taggit_labels.widgets import LabelWidget
+from taggit.managers import TaggableManager
+
 from problem.domain import DOMAIN_FRACTIONS, DOMAIN_ADDITION, DOMAIN_SUBTRACTION, DOMAIN_DIVISION, DOMAIN_MULTIPLICATION
 
 from mathematics.models import Math
@@ -12,6 +17,11 @@ from mathematics.models.division import Division
 
 class MathAdmin(admin.ModelAdmin):
     list_display = ('name', 'domain')
+
+    formfield_overrides = {
+        JSONField: {'widget': JSONEditorWidget},
+        # TaggableManager: {'widget': LabelWidget},
+    }
 
 
 class FractionAdmin(admin.ModelAdmin):
