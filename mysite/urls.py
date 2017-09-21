@@ -37,7 +37,8 @@ urlpatterns = [
     url(r'api-token-auth/', restful_view.obtain_auth_token, name="api-token"),
     url(r'api-auth/', include('rest_framework.urls', namespace='rest_framework')),
 
-
+    # Apps
+    url(r'^math/', include('mathematics.urls')),
     url(r'^friendship/', include('friendship.urls')),
 
     # API

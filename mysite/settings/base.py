@@ -247,3 +247,6 @@ SERVER_EMAIL = 'Alerts <alerts@mywaterbuffalo.com>'
 ADMINS = (
     ('Admin', 'admin@mywaterbuffalo.com'),
 )
+
+# Determine how many objects to display per page within a list. (Default: 50)
+PAGINATE_COUNT = 50

@@ -22,7 +22,6 @@ class CreatedUpdatedModel(models.Model):
         abstract = True
 
 
-
 @python_2_unicode_compatible
 class CustomField(models.Model):
     obj_type = models.ManyToManyField(ContentType, related_name='custom_fields', verbose_name='Object(s)',

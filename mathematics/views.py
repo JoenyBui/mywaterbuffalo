@@ -14,7 +14,7 @@ from .models import (
 class MathematicsListView(ObjectListView):
     # queryset = Math.objects.select_related('region', 'tenant')
     queryset = Math.objects.all()
-    filter = filters.MathFilter
-    filter_form = forms.MathFilterForm
+    # filter = filters.MathFilter
+    # filter_form = forms.MathFilterForm
     table = tables.MathDetailTable
-    template_name = 'math/math_list.html'
+    template_name = 'mathematics/math_list.html'
