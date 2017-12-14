@@ -149,16 +149,25 @@ else:
     #     $ cloud_sql_proxy -instances=[INSTANCE_CONNECTION_NAME]=tcp:3306
     #
     # See https://cloud.google.com/sql/docs/mysql-connect-proxy
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.mysql',
-            'HOST': os.getenv('DATABASE_HOST', '127.0.0.1'),
-            'PORT': os.getenv('DATABASE_PORT', '3306'),
-            'NAME': os.getenv('DATABASE_NAME', 'mywaterbuffalo'),
-            'USER': os.getenv('DATABASE_USER', 'root'),
-            'PASSWORD': os.getenv('DATABASE_PASSWORD', 'password'),
+    if False:
+        DATABASES = {
+            'default': {
+                'ENGINE': 'django.db.backends.mysql',
+                'HOST': os.getenv('DATABASE_HOST', '127.0.0.1'),
+                'PORT': os.getenv('DATABASE_PORT', '3306'),
+                'NAME': os.getenv('DATABASE_NAME', 'mywaterbuffalo'),
+                'USER': os.getenv('DATABASE_USER', 'root'),
+                'PASSWORD': os.getenv('DATABASE_PASSWORD', 'password'),
+            }
         }
-    }
+    else:
+        DATABASES = {
+            'default': {
+                'ENGINE': 'django.db.backends.sqlite3',
+                'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+            }
+        }
+
 # [END db_setup]
 
 # Internationalization
