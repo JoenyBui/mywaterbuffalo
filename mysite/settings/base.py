@@ -73,9 +73,15 @@ INSTALLED_APPS = (
     'rest_framework.authtoken',
     'rest_auth.registration',
     'django_filters',
+    'django_tables2',
+    'django_json_widget',
+    'mptt',
+
     'friendship',
     'taggit',
-    
+    'taggit_labels',
+    'tinymce',
+
     # Project Apps
     'polls',
     'core',
@@ -84,7 +90,8 @@ INSTALLED_APPS = (
     'classroom',
     'problem',
     'mathematics',
-    'readings'
+    'readings',
+    'utilities'
 )
 
 MIDDLEWARE_CLASSES = (
@@ -189,6 +196,9 @@ USE_TZ = True
 
 STATIC_ROOT = 'static'
 STATIC_URL = '/static/'
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, "project-static"),
+)
 
 SITE_ID = 1
 
@@ -237,3 +247,6 @@ SERVER_EMAIL = 'Alerts <alerts@mywaterbuffalo.com>'
 ADMINS = (
     ('Admin', 'admin@mywaterbuffalo.com'),
 )
+
+# Determine how many objects to display per page within a list. (Default: 50)
+PAGINATE_COUNT = 50

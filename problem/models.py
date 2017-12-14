@@ -52,7 +52,7 @@ class ProblemBase(models.Model):
 
     name = models.CharField(max_length=100)
     editors = models.ManyToManyField(Editor)
-    tags = TaggableManager()
+    tags = TaggableManager(blank=True)
     topics = models.ManyToManyField(Topic, default=None)
     status = models.IntegerField(choices=status.STATUS_CHOICES, default=status.CREATED)
     domain = models.IntegerField(choices=domain.DOMAIN_CHOICES, default=domain.DOMAIN_UNKNOWN)

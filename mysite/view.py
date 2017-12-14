@@ -1,3 +1,6 @@
+from django.shortcuts import render
+from django.views.generic import View
+
 from rest_framework.decorators import api_view, permission_classes, renderer_classes
 from rest_framework.response import Response
 from rest_framework.reverse import reverse
@@ -39,6 +42,23 @@ from rest_framework_swagger.renderers import OpenAPIRenderer, SwaggerUIRenderer
 #     })
 
 
+class HomeView(View):
+    template_name = 'home.html'
+
+    def get(self, request):
+        stats = {
+            'maths_count': None,
+            'fractions_count': None,
+            'additions_count': None,
+            'subtractions_count': None,
+            'multiplications_count': None,
+            'divisions_count': None
+        }
+
+        return render(request, self.template_name, {
+            'stats': stats
+        })
+
 
 @api_view(('GET', ))
 @permission_classes((permissions.AllowAny,))
@@ -48,7 +68,8 @@ def api_root(request, format=None):
         "core": reverse("core-root", request=request, format=format),
         #"api token auth": reverse("api-token", request=request, format=format),
         # "documents": reverse("docs", request=request, format=format),
-        "accounts": reverse("rest-auth-root", request=request, format=format)
+        "accounts": reverse("rest-auth-root", request=request, format=format),
+        "docs": reverse("api_docs", request=request, format=format)
     })
 
 

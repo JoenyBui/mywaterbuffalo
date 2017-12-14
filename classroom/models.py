@@ -277,6 +277,14 @@ class ClassAssignment(models.Model):
 
     def save(self, force_insert=False, force_update=False, using=None,
              update_fields=None):
+        """
+
+        :param force_insert:
+        :param force_update:
+        :param using:
+        :param update_fields:
+        :return:
+        """
         models.Model.save(self, force_insert=force_insert, using=using, update_fields=update_fields)
 
         # Loop through classroom and assigned test to all the kids.
