@@ -44,14 +44,14 @@ urlpatterns = [
     # API
     url(r'^api/$', api_root, name='index'),
     url(r'^api/v1/$', api_v1_root, name='v1-root'),
-    url(r'^api/v1/', include('mysite.v1', namespace='v1')),
+    url(r'^api/v1/', include(('mysite.v1', 'v1'), namespace='v1')),
     url(r'^api/rest-auth/$', api_rest_auth, name='rest-auth-root'),
-    url(r'^api/rest-auth/', include('rest_auth.urls', namespace='rest-auth')),
+    url(r'^api/rest-auth/', include(('rest_auth.urls', 'rest-auth'), namespace='rest-auth')),
     url(r'^api/rest-auth/registration/', include('rest_auth.registration.urls')),
     url(r'^api/core/$', api_core, name='core-root'),
-    url(r'^api/core/', include('core.urls', namespace='core')),
+    url(r'^api/core/', include(('core.urls', 'core'), namespace='core')),
     url(r'^api/docs/', swagger_view, name='api_docs'),
 
     # Admin
-    url(r'^admin/', include(admin.site.urls)),
+    url(r'^admin/', include((admin.site.urls, 'admin'))),
 ]
