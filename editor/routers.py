@@ -14,24 +14,22 @@ router.register(r'power-topic-experts', viewsets.PowerTopicExpertViewSets, 'powe
 
 
 # Editor
-editor_router = router.register(r'editors', viewsets.EditorModelViewSets, 'editors')
+editor_router = router.register(r'editors', viewsets.EditorModelViewSets, basename='editors')
 editor_router.register(r'power-sensei',
                        viewsets.PowerSenseiViewSets,
-                       base_name='editors-power-sensei',
-                       parents_query_lookups=['editor'])
-editor_router.register(r'power-pupil',
-                       viewsets.PowerPupilViewSets,
-                       base_name='editors-power-pupil',
-                       parents_query_lookups=['editor'])
-editor_router.register(r'power-guardian',
+                       basename='editors-power-sensei',
+                       parents_query_lookups=['editors'])
+
+editor.register(r'power-pupil', viewsets.PowerPupilViewSets, basename='editors-power-pupil', parents_query_lookups=['editors'])
+editor.register(r'power-guardian',
                        viewsets.PowerGuardianViewSets,
-                       'editor-power-guardian',
-                       parents_query_lookups=['editor'])
-editor_router.register(r'power-topic-experts',
+                       'editors-power-guardian',
+                       parents_query_lookups=['editors'])
+editor.register(r'power-topic-experts',
                        viewsets.PowerTopicExpertViewSets,
-                       'editor-power-topic-experts',
-                       parents_query_lookups=['editor'])
-editor_router.register(r'problems',
+                       'editors-power-topic-experts',
+                       parents_query_lookups=['editors'])
+editor.register(r'problems',
                        ProblemBaseModelViewSet,
-                       'editor-problem-base',
+                       'editors-problem-base',
                        parents_query_lookups=['editors'])

@@ -1,6 +1,7 @@
 from rest_framework import viewsets
 from rest_framework import permissions
 from rest_framework import filters
+from django_filters.rest_framework import DjangoFilterBackend
 
 from rest_framework_extensions.mixins import NestedViewSetMixin
 
@@ -22,7 +23,7 @@ class ProblemBaseModelViewSet(NestedViewSetMixin, viewsets.ModelViewSet):
     queryset = ProblemBase.objects.all()
     serializer_class = ProblemBaseSerializer
     permission_classes = (permissions.IsAuthenticatedOrReadOnly, )
-    filter_backends = (filters.DjangoFilterBackend, filters.SearchFilter, filters.OrderingFilter)
+    filter_backends = (DjangoFilterBackend, filters.SearchFilter, filters.OrderingFilter)
     filter_fields = ('id', 'status', 'domain', 'editors', 'topics',)
     search_fields = ('name', )
     ordering_fields = ('id', 'created', 'modified', 'name',)
@@ -36,7 +37,7 @@ class ProblemInstanceModelViewSet(NestedViewSetMixin, viewsets.ModelViewSet):
     queryset = ProblemInstance.objects.all()
     serializer_class = ProblemInstanceSerializer
     permission_classes = (permissions.IsAuthenticated, )
-    filter_backends = (filters.DjangoFilterBackend, filters.SearchFilter, filters.OrderingFilter)
+    filter_backends = (DjangoFilterBackend, filters.SearchFilter, filters.OrderingFilter)
     filter_fields = ('id', 'data', 'root',)
     search_fields = ('data', )
     ordering_fields = ('id', )

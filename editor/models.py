@@ -9,7 +9,7 @@ class Editor(models.Model):
     creating problem templates runs through the Editor model.
 
     """
-    user = models.OneToOneField(User)
+    user = models.OneToOneField(User, on_delete=models.PROTECT)
     pen_name = models.CharField(default='', max_length=100)
 
     def __str__(self):
@@ -46,7 +46,7 @@ class SuperPowerBase(models.Model):
 
     """
     strength = models.IntegerField(default=1)
-    editor = models.ForeignKey(Editor)
+    editor = models.ForeignKey(Editor, on_delete=models.PROTECT)
     assigned = models.DateTimeField(auto_now_add=True)
     validated = models.BooleanField(default=False)
 

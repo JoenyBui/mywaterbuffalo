@@ -27,7 +27,7 @@ class Reading(ProblemBase, QuestionTypeBase):
     **Reading Problem**
 
     """
-    passage = models.ForeignKey(ReadingPassage, default=None)
+    passage = models.ForeignKey(ReadingPassage, default=None, on_delete=models.PROTECT)
     stem = JSONField()
     keys = JSONField()
 

@@ -407,7 +407,7 @@ class ProblemInstance(models.Model):
     #     keys=dict(),
     #     index=0
     # ))
-    root = models.ForeignKey(ProblemBase, default=None)
+    root = models.ForeignKey(ProblemBase, default=None, on_delete=models.PROTECT)
 
     def __str__(self):
         return self.root.name
@@ -512,7 +512,7 @@ class AnswerInstance(models.Model):
     Answers are linked to problems.
 
     """
-    problem = models.ForeignKey(ProblemInstance, default=None)
+    problem = models.ForeignKey(ProblemInstance, default=None, on_delete=models.PROTECT)
 
 
 class AnswerTrueOrFalse(AnswerInstance):

@@ -64,7 +64,6 @@ INSTALLED_APPS = (
     'compressor',
     'rest_framework',
     'dry_rest_permissions',
-    'rest_framework_extensions',
     'rest_framework_swagger',
 
     'allauth',
@@ -76,7 +75,7 @@ INSTALLED_APPS = (
     'django_tables2',
     'django_json_widget',
     'mptt',
-
+    
     'friendship',
     'taggit',
     'taggit_labels',
@@ -221,7 +220,7 @@ REST_FRAMEWORK = {
         # 'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly',
         'rest_framework.permissions.IsAuthenticated',
     ],
-    'DEFAULT_FILTER_BACKENDS': ('rest_framework.filters.DjangoFilterBackend',),
+    'DEFAULT_FILTER_BACKENDS': ('django_filters.rest_framework.DjangoFilterBackend',),
     'DEFAULT_VERSIONING_CLASS': 'rest_framework.versioning.NamespaceVersioning',
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.LimitOffsetPagination',
 }
