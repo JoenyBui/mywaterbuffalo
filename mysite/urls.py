@@ -53,5 +53,5 @@ urlpatterns = [
     url(r'^api/docs/', swagger_view, name='api_docs'),
 
     # Admin
-    url(r'^admin/', include((admin.site.urls, 'admin'))),
+    url(r'^admin/', admin.site.urls, 'admin'),
 ]

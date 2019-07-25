@@ -100,7 +100,7 @@ ENV/
 .ropeproject
 /static/
 /environment.yaml
-
+/project-static
 db.sqlite3
 .vagrant/
 *vagrant.retry

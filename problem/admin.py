@@ -7,7 +7,7 @@ from .models import AnswerInstance, AnswerFillInTheBlank, AnswerMultipleChoice, 
 
 
 class ProblemBaseAdmin(admin.ModelAdmin):
-    list_display = ('name', 'tags', 'status',)
+    list_display = ('name', 'status',)
 
 
 class ProblemInstanceAdmin(admin.ModelAdmin):
