@@ -1,6 +1,7 @@
 from rest_framework import viewsets
 from rest_framework import permissions
 from rest_framework import filters
+from django_filters.rest_framework import DjangoFilterBackend
 
 from rest_framework_extensions.mixins import NestedViewSetMixin
 
@@ -21,7 +22,7 @@ class MathViewSet(NestedViewSetMixin, viewsets.ModelViewSet):
     queryset = Math.objects.all()
     serializer_class = MathSerializer
     permission_classes = (permissions.IsAuthenticatedOrReadOnly, )
-    filter_backends = (filters.DjangoFilterBackend, filters.SearchFilter, filters.OrderingFilter)
+    filter_backends = (DjangoFilterBackend, filters.SearchFilter, filters.OrderingFilter)
     filter_fields = ('id', 'status', 'domain', 'qtype', 'editors', 'topics')
     search_fields = ('name', 'keys', 'stem')
     ordering_fields = ('id', 'created', 'modified', 'name',)
@@ -35,7 +36,7 @@ class FractionViewSet(NestedViewSetMixin, viewsets.ModelViewSet):
     queryset = Math.objects.filter(topics__key=domain.DOMAIN_FRACTIONS)
     serializer_class = MathSerializer
     permission_classes = (permissions.IsAuthenticatedOrReadOnly, )
-    filter_backends = (filters.DjangoFilterBackend, )
+    filter_backends = (DjangoFilterBackend, )
     filter_fields = ('id', 'name', 'status', 'qtype', 'editors', )
     search_fields = ('name', 'keys', 'stem')
     ordering_fields = ('id', 'created', 'modified', 'name',)
@@ -49,7 +50,7 @@ class AdditionViewSet(NestedViewSetMixin, viewsets.ModelViewSet):
     queryset = Math.objects.filter(topics__key=domain.DOMAIN_ADDITION)
     serializer_class = MathSerializer
     permission_classes = (permissions.IsAuthenticatedOrReadOnly, )
-    filter_backends = (filters.DjangoFilterBackend, )
+    filter_backends = (DjangoFilterBackend, )
     filter_fields = ('id', 'name', 'status', 'qtype', 'editors', )
     search_fields = ('name', 'keys', 'stem')
     ordering_fields = ('id', 'created', 'modified', 'name',)
@@ -63,7 +64,7 @@ class SubtractionViewSet(NestedViewSetMixin, viewsets.ModelViewSet):
     queryset = Math.objects.filter(topics__key=domain.DOMAIN_SUBTRACTION)
     serializer_class = MathSerializer
     permission_classes = (permissions.IsAuthenticatedOrReadOnly, )
-    filter_backends = (filters.DjangoFilterBackend, )
+    filter_backends = (DjangoFilterBackend, )
     filter_fields = ('id', 'name', 'status', 'qtype', 'editors', )
     search_fields = ('name', 'keys', 'stem')
     ordering_fields = ('id', 'created', 'modified', 'name',)
@@ -77,7 +78,7 @@ class MultiplicationViewSet(NestedViewSetMixin, viewsets.ModelViewSet):
     queryset = Math.objects.filter(topics__key=domain.DOMAIN_MULTIPLICATION)
     serializer_class = MathSerializer
     permission_classes = (permissions.IsAuthenticatedOrReadOnly, )
-    filter_backends = (filters.DjangoFilterBackend, )
+    filter_backends = (DjangoFilterBackend, )
     filter_fields = ('id', 'name', 'status', 'qtype', 'editors', )
     search_fields = ('name', 'keys', 'stem')
     ordering_fields = ('id', 'created', 'modified', 'name',)
@@ -91,7 +92,7 @@ class DivisionViewSet(NestedViewSetMixin, viewsets.ModelViewSet):
     queryset = Math.objects.filter(topics__key=domain.DOMAIN_DIVISION)
     serializer_class = MathSerializer
     permission_classes = (permissions.IsAuthenticatedOrReadOnly, )
-    filter_backends = (filters.DjangoFilterBackend, )
+    filter_backends = (DjangoFilterBackend, )
     filter_fields = ('id', 'name', 'status', 'qtype', 'editors', )
     search_fields = ('name', 'keys', 'stem')
     ordering_fields = ('id', 'created', 'modified', 'name',)

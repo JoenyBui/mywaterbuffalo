@@ -13,22 +13,22 @@ router = ExtendedDefaultRouter()
 sensei_router = router.register(r'sensei', viewsets.SenseiModelViewSets, 'sensei')
 sensei_router.register(r'exams',
                        viewsets.ExamProblemsModelViewSet,
-                       base_name='sensei-exams',
+                       basename='sensei-exams',
                        parents_query_lookups=['teacher'])
 
 pupil_router = router.register(r'pupil', viewsets.PupilModelViewSets, 'pupil')
 pupil_router.register(r'exams',
                       viewsets.ExamAnswerModelViewSet,
-                      base_name='pupil-exams',
+                      basename='pupil-exams',
                       parents_query_lookups=['student'])
 class_router = router.register(r'class', viewsets.ClassModelViewSet, 'class')
 class_router.register(r'students',
                       viewsets.PupilModelViewSets,
-                      base_name='class-pupil',
+                      basename='class-pupil',
                       parents_query_lookups=['class'])
 class_router.register(r'teachers',
                       viewsets.SenseiModelViewSets,
-                      base_name='class-sensei',
+                      basename='class-sensei',
                       parents_query_lookups=['class'])
 
 # from rest_framework.routers import
@@ -37,7 +37,7 @@ class_router.register(r'teachers',
 exam_problem_router = router.register(r'exam-problems', viewsets.ExamProblemsModelViewSet, 'exam-problems')
 exam_problem_router.register(r'problems',
                              problem_viewsets.ProblemInstanceModelViewSet,
-                             base_name='exam-problems-instance',
+                             basename='exam-problems-instance',
                              parents_query_lookups=['examproblems'])
 
 # from problem.models import ProblemInstance

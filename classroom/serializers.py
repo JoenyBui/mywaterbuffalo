@@ -1,8 +1,7 @@
 import os
 from collections import OrderedDict
 
-# from urllib.parse import urljoin
-from urlparse import urljoin
+from urllib.parse import urljoin
 
 from django.contrib.auth.models import User
 

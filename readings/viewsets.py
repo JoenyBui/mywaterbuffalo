@@ -1,6 +1,7 @@
 from rest_framework import viewsets
 from rest_framework import permissions
 from rest_framework import filters
+from django_filters.rest_framework import DjangoFilterBackend
 
 from rest_framework_extensions.mixins import NestedViewSetMixin
 
@@ -24,7 +25,7 @@ class ReadingViewSet(NestedViewSetMixin, viewsets.ModelViewSet):
     queryset = Reading.objects.all()
     serializer_class = ReadingSerializer
     permission_classes = (permissions.IsAuthenticatedOrReadOnly, )
-    filter_backends = (filters.DjangoFilterBackend, filters.SearchFilter, filters.OrderingFilter)
+    filter_backends = (DjangoFilterBackend, filters.SearchFilter, filters.OrderingFilter)
     filter_fields = ('id', 'status', 'domain', 'qtype', 'editors', 'topics')
     search_fields = ('name', 'keys', 'stem')
     ordering_fields = ('id', 'created', 'modified', 'name',)
@@ -38,7 +39,7 @@ class SpellingViewSet(NestedViewSetMixin, viewsets.ModelViewSet):
     queryset = Spelling.objects.filter(domain=domain.DOMAIN_SPELLING)
     serializer_class = ReadingSerializer
     permission_classes = (permissions.IsAuthenticatedOrReadOnly, )
-    filter_backends = (filters.DjangoFilterBackend, filters.SearchFilter, filters.OrderingFilter)
+    filter_backends = (DjangoFilterBackend, filters.SearchFilter, filters.OrderingFilter)
     filter_fields = ('id', 'status', 'domain', 'qtype', 'editors', 'topics')
     search_fields = ('name', 'keys', 'stem')
     ordering_fields = ('id', 'created', 'modified', 'name',)
@@ -52,7 +53,7 @@ class VocabularyViewSet(NestedViewSetMixin, viewsets.ModelViewSet):
     queryset = Vocabulary.objects.filter(domain=domain.DOMAIN_VOCABULARY)
     serializer_class = ReadingSerializer
     permission_classes = (permissions.IsAuthenticatedOrReadOnly, )
-    filter_backends = (filters.DjangoFilterBackend, filters.SearchFilter, filters.OrderingFilter)
+    filter_backends = (DjangoFilterBackend, filters.SearchFilter, filters.OrderingFilter)
     filter_fields = ('id', 'status', 'domain', 'qtype', 'editors', 'topics')
     search_fields = ('name', 'keys', 'stem')
     ordering_fields = ('id', 'created', 'modified', 'name',)
