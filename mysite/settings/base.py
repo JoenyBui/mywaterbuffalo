@@ -45,7 +45,7 @@ DEBUG = True
 # have ALLOWED_HOSTS = ['*'] when the app is deployed. If you deploy a Django
 # app not on App Engine, make sure to set an appropriate host here.
 # See https://docs.djangoproject.com/en/1.10/ref/settings/
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = []
 
 # Application definition
 
@@ -64,7 +64,6 @@ INSTALLED_APPS = (
     'compressor',
     'rest_framework',
     'dry_rest_permissions',
-    'rest_framework_extensions',
     'rest_framework_swagger',
 
     'allauth',
@@ -76,10 +75,10 @@ INSTALLED_APPS = (
     'django_tables2',
     'django_json_widget',
     'mptt',
-
+    
     'friendship',
-    'taggit',
-    'taggit_labels',
+    # 'taggit',
+    # 'taggit_labels',
     'tinymce',
 
     # Project Apps
@@ -94,16 +93,15 @@ INSTALLED_APPS = (
     'utilities'
 )
 
-MIDDLEWARE_CLASSES = (
+MIDDLEWARE = [
+    'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
-    'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'django.middleware.security.SecurityMiddleware',
-)
+]
 
 ROOT_URLCONF = 'mysite.urls'
 
@@ -156,15 +154,17 @@ else:
     #     $ cloud_sql_proxy -instances=[INSTANCE_CONNECTION_NAME]=tcp:3306
     #
     # See https://cloud.google.com/sql/docs/mysql-connect-proxy
-    if False:
+    if True:
         DATABASES = {
             'default': {
-                'ENGINE': 'django.db.backends.mysql',
+                'ENGINE': 'django.db.backends.postgresql',
                 'HOST': os.getenv('DATABASE_HOST', '127.0.0.1'),
-                'PORT': os.getenv('DATABASE_PORT', '3306'),
+                'PORT': os.getenv('DATABASE_PORT', '9433'),
                 'NAME': os.getenv('DATABASE_NAME', 'mywaterbuffalo'),
-                'USER': os.getenv('DATABASE_USER', 'root'),
-                'PASSWORD': os.getenv('DATABASE_PASSWORD', 'password'),
+                'USER': os.getenv('DATABASE_USER', 'postgres'),
+                'PASSWORD': os.getenv('DATABASE_PASSWORD', 'postgres'),
+                # 'USER': os.getenv('DATABASE_USER', 'Buffalo'),
+                # 'PASSWORD': os.getenv('DATABASE_PASSWORD', 'h20Buffalo'),
             }
         }
     else:
@@ -221,7 +221,7 @@ REST_FRAMEWORK = {
         # 'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly',
         'rest_framework.permissions.IsAuthenticated',
     ],
-    'DEFAULT_FILTER_BACKENDS': ('rest_framework.filters.DjangoFilterBackend',),
+    'DEFAULT_FILTER_BACKENDS': ('django_filters.rest_framework.DjangoFilterBackend',),
     'DEFAULT_VERSIONING_CLASS': 'rest_framework.versioning.NamespaceVersioning',
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.LimitOffsetPagination',
 }

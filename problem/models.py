@@ -10,7 +10,7 @@ from django.db import models
 # from django_mysql.models.fields.json import JSONField
 from jsonfield import JSONField
 
-from taggit.managers import TaggableManager
+# from taggit.managers import TaggableManager
 
 from editor.models import Editor
 from topic.models import Topic
@@ -52,7 +52,7 @@ class ProblemBase(models.Model):
 
     name = models.CharField(max_length=100)
     editors = models.ManyToManyField(Editor)
-    tags = TaggableManager(blank=True)
+    # tags = TaggableManager(blank=True)
     topics = models.ManyToManyField(Topic, default=None)
     status = models.IntegerField(choices=status.STATUS_CHOICES, default=status.CREATED)
     domain = models.IntegerField(choices=domain.DOMAIN_CHOICES, default=domain.DOMAIN_UNKNOWN)
@@ -407,7 +407,7 @@ class ProblemInstance(models.Model):
     #     keys=dict(),
     #     index=0
     # ))
-    root = models.ForeignKey(ProblemBase, default=None)
+    root = models.ForeignKey(ProblemBase, default=None, on_delete=models.PROTECT)
 
     def __str__(self):
         return self.root.name
@@ -512,7 +512,7 @@ class AnswerInstance(models.Model):
     Answers are linked to problems.
 
     """
-    problem = models.ForeignKey(ProblemInstance, default=None)
+    problem = models.ForeignKey(ProblemInstance, default=None, on_delete=models.PROTECT)
 
 
 class AnswerTrueOrFalse(AnswerInstance):

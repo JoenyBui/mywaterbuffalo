@@ -23,7 +23,7 @@ class Sensei(models.Model):
         Pen Name
 
     """
-    user = models.OneToOneField(User, null=True)
+    user = models.OneToOneField(User, null=True, on_delete=models.PROTECT)
     pen_name = models.CharField(default='', max_length=100)
 
     def __str__(self):
@@ -44,7 +44,7 @@ class Pupil(models.Model):
         Sensei objects
 
     """
-    user = models.OneToOneField(User)
+    user = models.OneToOneField(User, on_delete=models.PROTECT)
     pen_name = models.CharField(default='', max_length=100)
     teachers = models.ManyToManyField(Sensei)
 
@@ -93,7 +93,7 @@ class ExamProblems(models.Model):
     )
 
     name = models.CharField(default='', max_length=100)
-    teacher = models.ForeignKey(Sensei)
+    teacher = models.ForeignKey(Sensei, on_delete=models.PROTECT)
     problems = models.ManyToManyField(ProblemInstance, blank=True)
     status = models.IntegerField(choices=STATUS_CHOICES, default=CREATED)
     created = models.DateTimeField(auto_now_add=True, blank=True)
@@ -162,8 +162,8 @@ class ExamAnswers(models.Model):
         (LOCK, 'Lock')
     )
 
-    student = models.ForeignKey(Pupil)
-    exam = models.ForeignKey(ExamProblems)
+    student = models.ForeignKey(Pupil, on_delete=models.PROTECT)
+    exam = models.ForeignKey(ExamProblems, on_delete=models.PROTECT)
     answers = JSONField()
     results = JSONField()
     grade = models.FloatField(default=0.0)
@@ -234,9 +234,9 @@ class Assignment(models.Model):
 
 
     """
-    student = models.ForeignKey(Pupil)
-    exam = models.ForeignKey(ExamProblems)
-    answers = models.ForeignKey(ExamAnswers, null=True)
+    student = models.ForeignKey(Pupil, on_delete=models.PROTECT)
+    exam = models.ForeignKey(ExamProblems, on_delete=models.PROTECT)
+    answers = models.ForeignKey(ExamAnswers, null=True, on_delete=models.PROTECT)
     grade = models.FloatField(default=0.0)
     created = models.DateTimeField(auto_now_add=True, blank=True)
     modified = models.DateTimeField(auto_now_add=True, blank=True)
@@ -255,7 +255,7 @@ class Class(models.Model):
 
     """
     name = models.CharField(default='', max_length=100)
-    teacher = models.ForeignKey(Sensei)
+    teacher = models.ForeignKey(Sensei, on_delete=models.PROTECT)
     students = models.ManyToManyField(Pupil)
     created = models.DateTimeField(auto_now_add=True, blank=True)
     modified = models.DateTimeField(auto_now_add=True, blank=True)
@@ -269,8 +269,8 @@ class ClassAssignment(models.Model):
     Class Assignments Model
 
     """
-    classroom = models.ForeignKey(Class)
-    exam = models.ForeignKey(ExamProblems)
+    classroom = models.ForeignKey(Class, on_delete=models.PROTECT)
+    exam = models.ForeignKey(ExamProblems, on_delete=models.PROTECT)
     assignments = models.ManyToManyField(Assignment)
     created = models.DateTimeField(auto_now_add=True, blank=True)
     modified = models.DateTimeField(auto_now_add=True, blank=True)

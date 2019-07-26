@@ -1,6 +1,7 @@
 from rest_framework import viewsets
 from rest_framework import permissions
 from rest_framework import filters
+from django_filters.rest_framework import DjangoFilterBackend
 
 from rest_framework_extensions.mixins import NestedViewSetMixin
 
@@ -21,7 +22,7 @@ class SenseiModelViewSets(NestedViewSetMixin, viewsets.ModelViewSet):
     queryset = Sensei.objects.all()
     serializer_class = SenseiSerializer
     permission_classes = (permissions.IsAuthenticated, )
-    filter_backends = (filters.DjangoFilterBackend, filters.SearchFilter, filters.OrderingFilter)
+    filter_backends = (DjangoFilterBackend, filters.SearchFilter, filters.OrderingFilter)
 
 
 class PupilModelViewSets(NestedViewSetMixin, viewsets.ModelViewSet):
@@ -32,7 +33,7 @@ class PupilModelViewSets(NestedViewSetMixin, viewsets.ModelViewSet):
     queryset = Pupil.objects.all()
     serializer_class = PupilSerializers
     permission_classes = (permissions.IsAuthenticated, )
-    filter_backends = (filters.DjangoFilterBackend, filters.SearchFilter, filters.OrderingFilter)
+    filter_backends = (DjangoFilterBackend, filters.SearchFilter, filters.OrderingFilter)
 
 
 class ExamProblemsModelViewSet(NestedViewSetMixin, viewsets.ModelViewSet):
@@ -43,7 +44,7 @@ class ExamProblemsModelViewSet(NestedViewSetMixin, viewsets.ModelViewSet):
     queryset = ExamProblems.objects.all()
     serializer_class = ExamProblemsSerializers
     permission_classes = (permissions.IsAuthenticated, )
-    filter_backends = (filters.DjangoFilterBackend, filters.SearchFilter, filters.OrderingFilter)
+    filter_backends = (DjangoFilterBackend, filters.SearchFilter, filters.OrderingFilter)
 
     def create(self, request, *args, **kwargs):
         if request.data['teacher'] is None:
@@ -60,7 +61,7 @@ class ExamAnswerModelViewSet(NestedViewSetMixin, viewsets.ModelViewSet):
     queryset = ExamAnswers.objects.all()
     serializer_class = ExamAnswersSerializers
     permission_classes = (permissions.IsAuthenticated, )
-    filter_backends = (filters.DjangoFilterBackend, filters.SearchFilter, filters.OrderingFilter)
+    filter_backends = (DjangoFilterBackend, filters.SearchFilter, filters.OrderingFilter)
 
 
 class AssignmentModelViewSet(NestedViewSetMixin, viewsets.ModelViewSet):
@@ -68,7 +69,7 @@ class AssignmentModelViewSet(NestedViewSetMixin, viewsets.ModelViewSet):
     queryset = Assignment.objects.all()
     serializer_class = AssignmentSerializer
     permission_classes = (permissions.IsAuthenticated, )
-    filter_backends = (filters.DjangoFilterBackend, filters.SearchFilter, filters.OrderingFilter)
+    filter_backends = (DjangoFilterBackend, filters.SearchFilter, filters.OrderingFilter)
 
 
 class ClassModelViewSet(NestedViewSetMixin, viewsets.ModelViewSet):
@@ -76,12 +77,12 @@ class ClassModelViewSet(NestedViewSetMixin, viewsets.ModelViewSet):
     queryset = Class.objects.all()
     serializer_class = ClassSerializer
     permission_classes = (permissions.IsAuthenticated, )
-    filter_backends = (filters.DjangoFilterBackend, filters.SearchFilter, filters.OrderingFilter)
+    filter_backends = (DjangoFilterBackend, filters.SearchFilter, filters.OrderingFilter)
 
 
 class ClassAssignmentsModelViewSet(NestedViewSetMixin, viewsets.ModelViewSet):
     queryset = ClassAssignment.objects.all()
     serializer_class = ClassAssignmentSerializer
     permission_classes = (permissions.IsAuthenticated,)
-    filter_backends = (filters.DjangoFilterBackend, filters.SearchFilter, filters.OrderingFilter)
+    filter_backends = (DjangoFilterBackend, filters.SearchFilter, filters.OrderingFilter)
 

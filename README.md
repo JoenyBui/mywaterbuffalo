@@ -128,3 +128,11 @@ Record the value returned for connectionName. You can also find this value in th
         gcloud app deploy
 
 Wait for the message that notifies you that the update has completed.
+
+### Pipenv 
+
+Pipenv
+
+```bash
+pipenv run pip freeze > requirements.txt
+```

@@ -3,6 +3,7 @@ from django.contrib.auth.models import User
 from rest_framework import viewsets
 from rest_framework import permissions
 from rest_framework import filters
+from django_filters.rest_framework import DjangoFilterBackend
 
 from rest_framework_extensions.mixins import NestedViewSetMixin
 
@@ -20,7 +21,7 @@ class UserModelViewSets(NestedViewSetMixin, viewsets.ModelViewSet):
     # queryset = User.objects.all()
     serializer_class = UserSerializer
     permission_classes = (permissions.IsAuthenticated,)
-    filter_backends = (filters.DjangoFilterBackend, filters.SearchFilter, filters.OrderingFilter)
+    filter_backends = (DjangoFilterBackend, filters.SearchFilter, filters.OrderingFilter)
     filter_fields = ('id', 'last_name', )
     search_fields = ('first_name', 'last_name', )
     ordering_fields = ('id', 'first_name', 'last_name',)
@@ -33,7 +34,7 @@ class EditorModelViewSets(NestedViewSetMixin, viewsets.ModelViewSet):
     queryset = Editor.objects.all()
     serializer_class = EditorSerializer
     permission_classes = (permissions.IsAuthenticated,)
-    filter_backends = (filters.DjangoFilterBackend, filters.SearchFilter, filters.OrderingFilter)
+    filter_backends = (DjangoFilterBackend, filters.SearchFilter, filters.OrderingFilter)
     filter_fields = ('id', 'pen_name', )
     search_fields = ('pen_name', )
     ordering_fields = ('id', 'pen_name',)
