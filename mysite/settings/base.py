@@ -154,15 +154,17 @@ else:
     #     $ cloud_sql_proxy -instances=[INSTANCE_CONNECTION_NAME]=tcp:3306
     #
     # See https://cloud.google.com/sql/docs/mysql-connect-proxy
-    if False:
+    if True:
         DATABASES = {
             'default': {
-                'ENGINE': 'django.db.backends.mysql',
+                'ENGINE': 'django.db.backends.postgresql',
                 'HOST': os.getenv('DATABASE_HOST', '127.0.0.1'),
-                'PORT': os.getenv('DATABASE_PORT', '3306'),
+                'PORT': os.getenv('DATABASE_PORT', '9433'),
                 'NAME': os.getenv('DATABASE_NAME', 'mywaterbuffalo'),
-                'USER': os.getenv('DATABASE_USER', 'root'),
-                'PASSWORD': os.getenv('DATABASE_PASSWORD', 'password'),
+                'USER': os.getenv('DATABASE_USER', 'postgres'),
+                'PASSWORD': os.getenv('DATABASE_PASSWORD', 'postgres'),
+                # 'USER': os.getenv('DATABASE_USER', 'Buffalo'),
+                # 'PASSWORD': os.getenv('DATABASE_PASSWORD', 'h20Buffalo'),
             }
         }
     else:

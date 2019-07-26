@@ -4,6 +4,7 @@ url = "https://pypi.org/simple"
 verify_ssl = true
 
 [dev-packages]
+pylint = "*"
 
 [packages]
 certifi = "==2017.7.27.1"
@@ -54,6 +55,7 @@ django-tinymce = "*"
 django-friendship = "*"
 django-mptt = "*"
 drf-extensions = "*"
+psycopg2-binary = "*"
 
 [requires]
 python_version = "3.7"

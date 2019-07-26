@@ -13,6 +13,7 @@
 # limitations under the License.
 
 from django.conf.urls import include, url
+from django.urls import path
 from django.contrib import admin
 
 from rest_framework.authtoken import views as restful_view
@@ -53,5 +54,6 @@ urlpatterns = [
     url(r'^api/docs/', swagger_view, name='api_docs'),
 
     # Admin
-    url(r'^admin/', admin.site.urls, 'admin'),
+    path('admin/', admin.site.urls)
+    # url(r'^admin/', admin.site.urls, 'admin'),
 ]

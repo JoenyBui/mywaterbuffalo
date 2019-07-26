@@ -1,0 +1,20 @@
+version: '3.6'
+services:
+  postgres:
+    container_name: mywaterbuffalo-postgres
+    build:
+      context: ./services/db
+    environment:
+      FILLA_DB_USER: Buffalo
+      FILLA_DB_PASSWORD: h20Buffalo
+      FILLA_DB_DATABASE: mywaterbuffalo
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - "9433:5432"
+    volumes:
+      - psqldata:/var/lib/pgsql/10/data
+      - psqlupgrade:/var/lib/pgsql/upgrade
+volumes:
+  psqldata:
+  psqlupgrade:
